@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cctest_app/model/NASAData.dart';
+import 'package:flutter_cctest_app/view/mainMenu/apMenu.dart';
+import 'package:flutter_cctest_app/view/orders/DataTableDemo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class myList extends StatefulWidget {
 
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return myListState();
-  }}
+  }
+}
 
   class myListState extends State<myList> {
 
@@ -21,15 +23,14 @@ class myList extends StatefulWidget {
     Widget build(BuildContext context) {
       return Scaffold(
           appBar: AppBar(
-            title: Text("TEST Json"),
+            title: Text("Агент Плюс: МТ"),
           ),
+          drawer: apMenu (),
           body: Container (
-              child:ListView (
-                children: buildView(),
-              )
+              child: DataTableDemo(),
           ),
           floatingActionButton: FloatingActionButton (
-            child: Icon(Icons.refresh),
+            child: Icon(Icons.add),
             onPressed: ()=>loadCC(),
           )
       );
